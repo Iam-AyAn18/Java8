@@ -2,6 +2,7 @@ package stream;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamMain {
 
@@ -14,7 +15,11 @@ public class StreamMain {
 		
 		list.stream().map(n->n/2).forEach(System.out::println);
 		System.out.println(list);
-		list.stream().map(n->n/2).forEach(m->System.out.println(m));
+		
+		List<Integer> list2 =list.stream().map(n->n/2).peek(System.out::println).collect(Collectors.toList());
+		System.out.println(list2);
+		
+		System.out.println(list.stream().map(n->n/2).allMatch(n->n>0));
 	}
 
 }
