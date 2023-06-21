@@ -1,0 +1,152 @@
+1. Why annotations are used?
+Answer :
+Annotations in Java serve various purposes and provide additional information to the compiler, runtime, or other tools. Here are some common reasons why annotations are used:
+a. Metadata: Annotations can be used to add metadata or additional information to Java code elements like classes, methods, fields, or parameters. 
+This metadata can be used by tools or frameworks for various purposes, such as configuration, documentation generation, code analysis, or runtime behavior.
+b. Compiler Instructions: Annotations can provide instructions to the compiler for performing specific tasks or applying certain behaviors during the compilation process. 
+For example, the `@Override` annotation is used to indicate that a method overrides a superclass method, allowing the compiler to perform a compile-time check for correctness.
+c. Frameworks and Libraries: Many frameworks and libraries use annotations to enable or configure specific features or behaviors. 
+For instance, in the case of dependency injection frameworks like Spring, annotations are used to mark classes as components, specify bean configurations, or define injection points.
+d. Code Generation: Annotations can be used for code generation purposes. They can trigger code generation tools or processors to generate additional code based on the annotated elements. 
+This is often used for generating boilerplate code, reducing manual coding efforts, or integrating with other systems.
+e. Runtime Reflection: Annotations can be accessed at runtime through reflection to inspect or modify the behavior of annotated elements. 
+This allows runtime frameworks or tools to dynamically adapt or customize the behavior based on the presence or values of annotations.
+Overall, annotations provide a flexible and extensible mechanism to enhance Java code with additional information, enable framework features, guide tools, or automate code generation. 
+They help in improving code readability, maintainability, and enable better integration with the broader Java ecosystem.
+
+2. Function Interface and Lambda Expression:
+Answer:
+
+Lambda Expressions can be defined as methods without names i.e anonymous functions. Like methods, they also have parameters, a body, a return type and possible list of exceptions that can be thrown. 
+But unlike methods, neither they have names nor they are associated with any particular class.
+@FunctionalInterface
+public interface Comparator<T>
+{
+    int compare(T o1, T o2);       //Only one abstract method
+}
+
+	
+Comparator<Student> idComparator = (Student s1, Student s2) -> s1.getID()-s2.getID();
+
+if(idComparator.compare(Student ayan, Student sayan))
+{
+	//do something
+}
+
+3. Lambda Expression and method reference:
+Answer:
+(String s)->Interger.parseInt(s) = Integer::parseInt
+(String s)-> s.toLowerCase(s) = String::toLowerCase
+(int i)-> System.out.println(i) = System.out::println
+(Student s)->s.getName() = Student::getName
+()->s.getName() = s::getName
+()->new Student() = Student::new
+
+4. What are some built-in functional interfaces in Java?
+Answer:
+Java provides several built-in functional interfaces in the java.util.function package, such as 
+Function interface -> abstract method
+- Predicate -> test, 
+- Function -> apply, 
+- Consumer -> accept, 
+- Supplier -> get. 
+These interfaces encapsulate common functional patterns and can be used directly or as a basis for defining custom functional interfaces.
+
+5. What is Interface?
+Answer:
+An interface in Java is a reference type that is used to define a contract or a set of methods that a class must implement. 
+It defines a set of abstract methods, constants, and default methods that can be implemented by classes.
+An interface provides a way to achieve abstraction, as it separates the definition of methods from their implementation.
+- can define constants
+- supports multiple inheritance
+- can have default method (method with defination can be used as-is or overiden in implemetation)
+
+6. Abstract Class VS Interface
+Answer:
+
+Contructor -  Abstract Class- supports ** Interface- doesn't have
+Default Method -  Abstract Class- doesn't supports ** Interface- can have default method (method with defination can be used as-is or overiden in implemetation)
+Accessibility - Abstract class - Support all public, private, protected ** Interface doesn't support anything other than pulic
+Multiple Inheritance - Abstract class - doesn't support ** Interface - Supports
+Methods - Inheritance supports static methods as well as fields with abstract method but doesn't support final methods (support non final method) but it only supports final fields 
+** Abstract class - supports final, non final methods, and final non-final fields.
+
+7. Static method vs Final method:
+Answer:
+Static Methods:
+Static methods belong to the class itself, not to any specific instance of the class.
+They can be called directly on the class without creating an object of the class.
+Static methods can access only static variables and other static methods of the class.
+They cannot access non-static (instance) variables or methods directly.
+Static methods can be overridden in subclasses, but the subclass method will hide the superclass method, not override it.
+
+Final Methods:
+Final methods cannot be overridden by subclasses. Once a method is declared as final in a class, it cannot be overridden in any subclass.
+They provide the guarantee that the method implementation cannot be changed by subclasses.
+Final methods can be inherited by subclasses, but they cannot be modified or overridden.
+Final methods are often used to enforce a specific behavior that should not be changed in subclasses.
+Final methods can be static or non-static.
+
+8. Static Variable
+Answer:
+
+public class StaticVariable {
+    public static int counter=0;
+
+    public static void main(String[] args) {
+        StaticVariable obj1 = new StaticVariable();
+        StaticVariable obj2 = new StaticVariable();
+
+        StaticVariable.counter = 5; // Modify counter through class object
+        System.out.println(obj2.counter); // Access counter through obj2, the value will be 5
+    }
+}
+output : 5
+
+Static variable is shared among the other instances of the class.
+
+9. After Java 8, what do you think about Java? Is it still an object oriented language or it has turned into functional programming language?
+Answer:
+Java is still an object oriented language where everything is done keeping objects (data) in mind. 
+But, with the introduction of new features in Java 8, you can use Java as a functional programming language also. 
+You can treat it as as an added advantage over the other languages which are either object oriented or functions oriented. 
+From Java 8, you can use Java either in an object-oriented programming paradigm or in a functional programming paradigm. 
+It supports both.
+
+10. Which type of resource loading do Java 8 streams support? Lazy Loading OR Eager Loading?
+Answer:
+Lazy Loading.
+
+Lazy Loading is a technique where the data is loaded on-demand or when it is actually needed.
+Eager Loading is the opposite of lazy loading, where the data is loaded upfront or eagerly.
+With eager loading, all related data or objects are loaded immediately, even if they might not be accessed or used immediately.
+They are not specific to Java 8 streams but can be applied in various contexts, including data access, object-relational mapping (ORM).
+
+11. Stream API operations
+Answer:
+
+Intermediate Operations:
+filter: Filters the elements based on a given predicate.
+map: Transforms each element of the stream to another value using a given function.
+flatMap: Flattens a stream of streams into a single stream.
+distinct: Returns a stream with distinct elements.
+sorted: Sorts the elements of the stream.
+limit: Limits the number of elements in the stream.
+skip: Skips the specified number of elements in the stream.
+
+Terminal Operations:
+forEach: Performs an action on each element of the stream.
+collect: Collects the elements of the stream into a collection or other data structure.
+reduce: Performs a reduction operation on the elements of the stream.
+min: Returns the minimum element of the stream based on a comparator.
+max: Returns the maximum element of the stream based on a comparator.
+count: Returns the count of elements in the stream.
+anyMatch: Returns true if any element of the stream matches the given predicate.
+allMatch: Returns true if all elements of the stream match the given predicate.
+noneMatch: Returns true if no element of the stream matches the given predicate.
+findFirst: Returns the first element of the stream.
+findAny: Returns any element of the stream.
+
+Short-circuiting Operations:
+anyMatch, allMatch, noneMatch, findFirst, and findAny
+
