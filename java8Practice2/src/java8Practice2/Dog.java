@@ -8,6 +8,9 @@ public class Dog extends Animal {
 	}
 
 	public static void main(String[] args) {
-		Animal D = new Dog();
+		Animal A = new Dog();
+		Dog D = new Dog();
+		Animal A2 = new Animal();
+		//Dog D2 = new Animal(); error
 	}
 }

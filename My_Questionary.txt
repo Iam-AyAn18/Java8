@@ -198,3 +198,25 @@ But in additional, if original object has any references to other objects as fie
 Student class -> original class
 Student class -> clone class
 if we make changes into student class via clone class it won't make in difference for student class of original class. both are 100% disjoint from one another.
+
+14. What is Marker Interface?
+Answer:
+Marker interfaces in java are interfaces with no members declared in them. 
+They are just an empty interfaces used to mark or identify a special operation.
+Marker interfaces give instructions to JVM that classes implementing them will have special behavior and must be handled with care.
+E.g. java.lang.Cloneable Interface, java.io.Serializable Interface
+
+15. Collectors query:
+Answer:
+
+- Find number of students of grouping by genders in a stream.
+Map<String,int>=Studentlist.stream().collect(collectors.groupingBy(student::getGender,collectors.counting());
+
+- Find if student passed or not, and create a list.
+Map<Boolean,int>=Studentlist.stream().collect(collectors.partioningBy(student -> student.getResult()=="pass",collectors.counting());
+
+- Extracting highest, lowest and average of percentage of students.
+DoubleSummaryStatistics studentStats = studentList.stream().collect(Collectors.summarizingDouble(Student::getPercentage));    
+System.out.println("Highest Percentage : "+studentStats.getMax());        
+System.out.println("Lowest Percentage : "+studentStats.getMin());      
+System.out.println("Average Percentage : "+studentStats.getAverage());
