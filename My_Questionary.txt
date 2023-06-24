@@ -228,3 +228,8 @@ It is designed to handle situations where a value may be present or absent, prov
 Optional<String> nullValue = Optional.empty();
 Optional<String> actualValue = Optional.of("Hello");
 System.out.println(actualValue.get());
+
+17. Spliterator in JAVA 8.
+Answer:
+Spliterator is an interface introduced from Java 8 as a member of java.util package.
+It can be used for both, partitioning as well as iterating.
