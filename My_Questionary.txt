@@ -220,3 +220,11 @@ DoubleSummaryStatistics studentStats = studentList.stream().collect(Collectors.s
 System.out.println("Highest Percentage : "+studentStats.getMax());        
 System.out.println("Lowest Percentage : "+studentStats.getMin());      
 System.out.println("Average Percentage : "+studentStats.getAverage());
+
+16.Optional Class.
+Answer:
+The Optional class in Java is a container object that may or may not contain a non-null value. 
+It is designed to handle situations where a value may be present or absent, providing a more expressive and safer alternative to using null references.
+Optional<String> nullValue = Optional.empty();
+Optional<String> actualValue = Optional.of("Hello");
+System.out.println(actualValue.get());
