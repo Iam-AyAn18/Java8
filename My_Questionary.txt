@@ -229,7 +229,12 @@ Optional<String> nullValue = Optional.empty();
 Optional<String> actualValue = Optional.of("Hello");
 System.out.println(actualValue.get());
 
-17. Spliterator in JAVA 8.
+17. Spliterator in JAVA 8. Iterator vs Spliterator
 Answer:
 Spliterator is an interface introduced from Java 8 as a member of java.util package.
 It can be used for both, partitioning as well as iterating.
+
+Iterator - only performs iteration. Spliterator - performs both iteration and splitting
+Iterator - only performs iteration one by one. Spliterator - can perform both in bulk or one by one.
+Iterator - suitable for serial processing. Spliterator - can do parallel processing as it can split.
+Iterator - size is unknown. Spliterator - approx size is known.
