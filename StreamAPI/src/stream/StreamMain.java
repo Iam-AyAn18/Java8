@@ -25,6 +25,8 @@ public class StreamMain {
 		System.out.println(list.stream().map(n -> n / 2).allMatch(n -> n > 0));
 		System.out.println(list.stream().map(n -> n / 2).anyMatch(Objects::nonNull));
 
+		//****************************************
+		
 		List<Student> listOfStudents = new ArrayList<Student>();
 
 		listOfStudents.add(new Student(111, "John", 81.0, "Mathematics"));

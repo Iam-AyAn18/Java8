@@ -238,3 +238,66 @@ Iterator - only performs iteration. Spliterator - performs both iteration and sp
 Iterator - only performs iteration one by one. Spliterator - can perform both in bulk or one by one.
 Iterator - suitable for serial processing. Spliterator - can do parallel processing as it can split.
 Iterator - size is unknown. Spliterator - approx size is known.
+
+18. Hashmap and it's properties.
+Answer:
+HashMap is a popular implementation of Map interface which holds the data as key-value pairs.
+
+Properties Of HashMap In Java :
+1) HashMap holds the data in the form of key-value pairs where each key is associated with one value.
+2) HashMap doesn’t allow duplicate keys. But it can have duplicate values.
+3) HashMap can have multiple null values and only one null key.
+4) HashMap is not synchronized. To get the synchronized HashMap, use Collections.synchronizedMap() method.
+5) HashMap maintains no order.
+6) HashMap gives constant time performance for the operations like get() and put() methods.
+7) Default initial capacity of HashMap is 16.
+
+HashMap<String, Double> map = new HashMap<String, Double>();
+map.put("Ashwin", 87.55);
+Set set = map.keySet();
+Iterator keySetIterator = set.iterator();
+while (keySetIterator.hasNext()) 
+{
+	Object key = keySetIterator.next();
+	System.out.println(key+"  : "+map.get(key));
+}
+
+*********
+Hashmap with stream api
+(we need to use entrySet() to use stream())
+map.entrySet()
+.stream()
+.map(s->s.getKey()=="Ashwin")
+.forEach(System.out::println)
+
+19. How Hashmap works?
+Answer:
+Whenever you insert new key-value pair using put() method, HashMap blindly doesn’t allocate slot in the table[] array. 
+Instead it calls hash function on the key. HashMap has its own hash function to calculate the hash code of the key. 
+This function is implemented so that it overcomes poorly implemented hashCode() methods.
+After calculating the hash code of the key, it calls indexFor() method by passing the hash code of the key and length of the table[] array. 
+This method returns the index in the table[] array for that particular key-value pair.
+
+below are the steps for put() -
+Step 1 : First checks whether the key is null or not. If the key is null, it calls putForNullKey() method. table[0] is always reserved for null key. Because, hash code of null is 0.
+Step 2 : If the key is not null, then it calculates the hash code of the key by calling hash() method.
+Step 3 : Calls indexFor() method by passing the hash code calculated in step 2 and length of the table[] array. This method returns index in table[] array for the specified key-value pair.
+Step 4 : After getting the index, it checks all keys present in the linked list at that index ( or bucket). If the key is already present in the linked list, it replaces the old value with new value.
+Step 5 : If the key is not present in the linked list, it appends the specified key-value pair at the end of the linked list.
+
+Step 1, 2, 3 is same for get() -
+Step 4 : After getting index, it will iterate though linked list at that position and checks for the key using equals() method. If the key is found, it returns the value associated with it. otherwise returns null.
+
+20. HashSet and it's properties:
+Answer:
+The HashSet class in Java is an implementation of Set interface. HashSet is a collection of objects which contains only unique elements. 
+Duplicates are not allowed in HashSet. HashSet gives constant time performance for insertion, removal and retrieval operations. 
+It allows only one null element.
+
+Properties of HashSet :
+1) HashSet class internally uses HashMap to store the objects. The elements you enter into HashSet will be stored as keys of HashMap and their values will be a constant.
+2) HashSet does not allow duplicate elements. If you try to insert a duplicate element, older element will be overwritten.
+3) HashSet can have maximum one null element.
+4) HashSet doesn’t maintain any order. The order of the elements will be largely unpredictable. And it also doesn’t guarantee that order will remain constant over time.
+5) HashSet offers constant time performance for insertion, removal and retrieval operations.
+6) HashSet class is not synchronized. If you want synchronized HashSet, use Collections.synchronizedSet() method.
