@@ -301,3 +301,15 @@ Properties of HashSet :
 4) HashSet doesn’t maintain any order. The order of the elements will be largely unpredictable. And it also doesn’t guarantee that order will remain constant over time.
 5) HashSet offers constant time performance for insertion, removal and retrieval operations.
 6) HashSet class is not synchronized. If you want synchronized HashSet, use Collections.synchronizedSet() method.
+
+
+21. HashMap vs HashSet
+Asnwer:
+			HashSet											HashMap
+HashSet implements Set interface.				HashMap implements Map interface.
+HashSet stores the data as objects.				HashMap stores the data as key-value pairs.
+HashSet internally uses HashMap.				HashMap internally uses an array of Entry<K, V> objects.
+HashSet doesn’t allow duplicate elements.		HashMap doesn’t allow duplicate keys, but allows duplicate values.
+HashSet allows only one null element.			HashMap allows one null key and multiple null values.
+Insertion operation requires only one object.	Insertion operation requires two objects, key and value.
+HashSet is slightly slower than HashMap.		HashMap is slightly faster than HashSet.
