@@ -313,3 +313,11 @@ HashSet doesn’t allow duplicate elements.		HashMap doesn’t allow duplicate k
 HashSet allows only one null element.			HashMap allows one null key and multiple null values.
 Insertion operation requires only one object.	Insertion operation requires two objects, key and value.
 HashSet is slightly slower than HashMap.		HashMap is slightly faster than HashSet.
+
+
+22. How HashSet works?
+Answer:
+Whenever you insert an element into HashSet using add() method, it actually creates an entry in the internally backing HashMap object with 
+element you have specified as it’s key and constant called “PRESENT” as it’s value.
+
+set.add("orange"); means map.put("orange",PRESENT);
