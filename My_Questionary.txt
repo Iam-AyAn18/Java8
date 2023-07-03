@@ -321,3 +321,61 @@ Whenever you insert an element into HashSet using add() method, it actually crea
 element you have specified as it’s key and constant called “PRESENT” as it’s value.
 
 set.add("orange"); means map.put("orange",PRESENT);
+
+23. Threads in Java
+Answer:
+Thread is a smallest executable unit of a process. Thread has it’s own path of execution in a process. A process can have multiple threads.
+
+class Thread1 extends Thread {
+	@Override
+	public void run() {
+		for (int i = 0; i <= 1000; i++) {
+			System.out.println(i);
+		}
+	}
+}
+
+//Defining second thread with task
+//The task of this thread is to print the numbers from 1001 to 2000
+class Thread2 extends Thread {
+	@Override
+	public void run() {
+		for (int i = 1001; i <= 2000; i++) {
+			System.out.println(i);
+		}
+	}
+}
+
+public class ThreadsInJava {
+//Main Thread
+	public static void main(String[] args) {
+//Creating first thread
+		Thread1 t1 = new Thread1();
+		t1.start();
+
+//Creating second thread
+		Thread2 t2 = new Thread2();
+		t2.start();
+	}
+}
+
+
+start()							It starts execution of a thread. It internally calls run() method.
+run()							It contains main task to be performed by the thread.
+sleep()							It makes the currently executing thread to pause it’s execution for a specified period of time. When the thread is going for sleep, it does not release the locks it holds.
+wait()							It makes the currently executing thread to release the lock of this object and wait until some other thread notifies it.
+notify()						It wakes up one thread randomly which is waiting for this object’s lock.
+notifyAll()						It wakes up all thread which are waiting for this object’s lock. But, only one thread will acquire lock of this object depending upon the priority.
+join()							Using this method, you can make the currently executing thread to wait for some other threads to finish their task.
+isAlive()						It checks whether a thread is alive or not.
+isDaemon()						It checks whether a thread is daemon thread or user thread.
+getId()							It returns ID of a thread.
+getState()						It returns current state of a thread.
+getName() and setName()			Getter and setter for name of a thread
+getPriority() and setPriority()	Getter and setter for priority of a thread.
+getThreadGroup()				It returns a thread group to which this thread belongs to.
+interrupt()						It is used to interrupt a thread.
+isInterrupted()					It checks whether a thread is interrupted or not.
+setDaemon()						It sets daemon status of a thread.
+currentThread()					It returns a reference to currently executing thread.
+yield()							It causes the currently executing thread to temporarily pause its execution and allow other threads to execute.
