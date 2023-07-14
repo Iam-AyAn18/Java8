@@ -379,3 +379,15 @@ isInterrupted()					It checks whether a thread is interrupted or not.
 setDaemon()						It sets daemon status of a thread.
 currentThread()					It returns a reference to currently executing thread.
 yield()							It causes the currently executing thread to temporarily pause its execution and allow other threads to execute.
+
+
+24. ProceedingJoinPoint vs JoinPoint?
+Answer : JoinPoint is the core interface in AspectJ that represents a point during the execution of a program. 
+It provides access to information about the current joinpoint, which is a specific point in the execution of a program where an aspect can be applied. 
+JoinPoint allows you to obtain information such as the method being executed, its arguments, the target object, and more. 
+However, JoinPoint doesn't provide the ability to proceed with the execution of the intercepted method.
+
+ProceedingJoinPoint is a subinterface of JoinPoint and provides additional functionality specifically for advice that needs to proceed with the execution of the intercepted method. 
+It extends JoinPoint and adds methods like proceed() and proceed(Object[] args) that allow you to continue the execution of the intercepted method or modify its arguments.
+used in @around
+
