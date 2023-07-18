@@ -390,4 +390,3 @@ However, JoinPoint doesn't provide the ability to proceed with the execution of 
 ProceedingJoinPoint is a subinterface of JoinPoint and provides additional functionality specifically for advice that needs to proceed with the execution of the intercepted method. 
 It extends JoinPoint and adds methods like proceed() and proceed(Object[] args) that allow you to continue the execution of the intercepted method or modify its arguments.
 used in @around
-
