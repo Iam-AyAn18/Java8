@@ -1,0 +1,20 @@
+1. ProceedingJoinPoint vs JoinPoint?
+Answer : JoinPoint is the core interface in AspectJ that represents a point during the execution of a program. 
+It provides access to information about the current joinpoint, which is a specific point in the execution of a program where an aspect can be applied. 
+JoinPoint allows you to obtain information such as the method being executed, its arguments, the target object, and more. 
+However, JoinPoint doesn't provide the ability to proceed with the execution of the intercepted method.
+
+ProceedingJoinPoint is a subinterface of JoinPoint and provides additional functionality specifically for advice that needs to proceed with the execution of the intercepted method. 
+It extends JoinPoint and adds methods like proceed() and proceed(Object[] args) that allow you to continue the execution of the intercepted method or modify its arguments.
+used in @around
+
+2.Joint Point vs Point Cut:
+Answer : A joinpoint is a candidate point in the Program Execution of the application where an aspect can be plugged in. 
+This point could be a method being called, an exception being thrown, or even a field being modified.
+
+Advice represents the code that executes at specific join points, as defined by the pointcut. 
+There are different types of advice, such as "before," "after," "around," etc. Each type of advice allows you to execute code at different points in the program's execution.
+
+A pointcut defines at what joinpoints, the associated Advice should be applied. 
+Advice can be applied at any joinpoint supported by the AOP framework. 
+Of course, you don’t want to apply all of your aspects at all of the possible joinpoints.

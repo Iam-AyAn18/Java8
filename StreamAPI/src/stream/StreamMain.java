@@ -2,6 +2,7 @@ package stream;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
@@ -24,6 +25,8 @@ public class StreamMain {
 
 		System.out.println(list.stream().map(n -> n / 2).allMatch(n -> n > 0));
 		System.out.println(list.stream().map(n -> n / 2).anyMatch(Objects::nonNull));
+		
+		System.out.println("second highest number: "+list.stream().sorted((a,b)->Integer.compare(b, a)).skip(1).findFirst().orElse(-1));
 
 		//****************************************
 		
@@ -50,6 +53,7 @@ public class StreamMain {
 		listOfStudents.add(new Student(101010, "Chris", 89.8, "Computers"));
 		Predicate<Student> mathematicsPredicate = (Student student) -> student.getSpecialization()
 				.equals("Mathematics");
+		
 
 		List<Student> mathematicsStudents = new ArrayList<Student>();
 
@@ -68,6 +72,15 @@ public class StreamMain {
 		}
 
 		System.out.println(mathematicsStudents2);
+		
+		System.out.println("before sorting");
+		listOfStudents.stream().forEach(System.out::println);
+		listOfStudents.sort(Comparator.comparing(Student::getPercentage));
+		System.out.println("after sorting");
+		listOfStudents.stream().forEach(System.out::println);
+		listOfStudents.sort(Comparator.comparing(Student::getName).thenComparing(Student::getPercentage));
+		System.out.println("after sorting 2");
+		listOfStudents.stream().forEach(System.out::println);
 	}
 
 }
