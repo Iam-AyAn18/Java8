@@ -18,3 +18,34 @@ There are different types of advice, such as "before," "after," "around," etc. E
 A pointcut defines at what joinpoints, the associated Advice should be applied. 
 Advice can be applied at any joinpoint supported by the AOP framework. 
 Of course, you don’t want to apply all of your aspects at all of the possible joinpoints.
+
+
+3. Scope in Maven:
+Answer:
+In Maven, the `scope` attribute is used to specify the visibility and accessibility of a dependency within different phases of a project's build lifecycle. 
+It determines when the dependency will be available during compilation, testing, packaging, and runtime. The `scope` attribute is used within the `<dependency>` element in the project's `pom.xml` file.
+
+Here are the commonly used values for the `scope` attribute in Maven:
+
+1. **compile:**
+   This is the default scope. Dependencies with the `compile` scope are available during compilation and are also included in the runtime classpath. 
+   These dependencies are required for both compiling the code and running the application.
+
+2. **provided:**
+   Dependencies with the `provided` scope are expected to be provided by the JDK or the runtime environment when the application is executed. 
+   These dependencies are available during compilation but are not included in the runtime classpath. This scope is often used for Java EE APIs that are provided by the application server.
+
+3. **runtime:**
+   Dependencies with the `runtime` scope are not needed during compilation, but they are required during runtime. 
+   These dependencies are included in the runtime classpath but not in the compile classpath.
+
+4. **test:**
+   Dependencies with the `test` scope are used only during testing. They are available during the test compilation and execution phases but are not included in the runtime classpath. 
+   These dependencies are not packaged with the application.
+
+5. **system:**
+   Dependencies with the `system` scope are similar to `compile`, but you need to provide the path to the dependency explicitly using the `<systemPath>` element. 
+   This is typically used for dependencies not available in Maven repositories.
+
+6. **import:**
+   The `import` scope is used only in Maven 2. It's used to include dependencies that are "imported" from another POM file. This scope is not used in Maven 3 and later versions.

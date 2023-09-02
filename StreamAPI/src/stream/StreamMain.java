@@ -75,6 +75,8 @@ public class StreamMain {
 		
 		System.out.println("before sorting");
 		listOfStudents.stream().forEach(System.out::println);
+		listOfStudents.stream().sorted(Comparator.comparing(Student::getPercentage)); 
+
 		listOfStudents.sort(Comparator.comparing(Student::getPercentage));
 		System.out.println("after sorting");
 		listOfStudents.stream().forEach(System.out::println);
