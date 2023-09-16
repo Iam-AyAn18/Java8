@@ -380,3 +380,8 @@ setDaemon()						It sets daemon status of a thread.
 currentThread()					It returns a reference to currently executing thread.
 yield()							It causes the currently executing thread to temporarily pause its execution and allow other threads to execute.
 
+24. Static Block:
+Answer: Static blocks are executed first. Before main method.
+
+25. Can we execute a java program without a main method?
+Answer: Static block in Java is a group of statements that gets executed only once when the class is loaded into the memory by Java ClassLoader, It is also known as a static initialization block.
