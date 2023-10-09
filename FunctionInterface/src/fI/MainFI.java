@@ -7,6 +7,10 @@ public class MainFI {
 		ClassFunctional classFunctional = ()->System.out.println("cool joe");
 		
 		classFunctional.test();
+		
+		LambdaInt<Integer> li = (a, b) -> a+b;
+		
+		System.out.println(li.operation(4, 6));
 	}
 
 }

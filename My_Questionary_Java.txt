@@ -46,10 +46,11 @@ Answer:
 Answer:
 Java provides several built-in functional interfaces in the java.util.function package, such as 
 Function interface -> abstract method
-- Predicate -> test, 
-- Function -> apply, 
-- Consumer -> accept, 
-- Supplier -> get. 
+- Predicate<T> -> test - boolean,
+- Comparator<T> -> compare - int,
+- Function<T,R> -> apply - R, 
+- Consumer<T> -> accept - void, 
+- Supplier<T> -> get - T. 
 These interfaces encapsulate common functional patterns and can be used directly or as a basis for defining custom functional interfaces.
 
 5. What is Interface?
