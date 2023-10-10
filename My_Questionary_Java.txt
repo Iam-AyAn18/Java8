@@ -386,3 +386,43 @@ Answer: Static blocks are executed first. Before main method.
 
 25. Can we execute a java program without a main method?
 Answer: Static block in Java is a group of statements that gets executed only once when the class is loaded into the memory by Java ClassLoader, It is also known as a static initialization block.
+
+26. What is SingleTon Design Pattern
+Answer: The Singleton design pattern is a creational pattern that ensures a class has only one instance and provides a global point of access to that instance.
+
+Single Instance: The Singleton pattern guarantees that there is only one instance of the class in the entire application.
+Global Access: It provides a way to access this single instance from anywhere within the application.
+
+public class Singleton {
+    // Private static instance variable
+    private static Singleton instance;
+
+    // Private constructor to prevent instantiation from other classes
+    private Singleton() {
+    }
+
+    // Public method to provide access to the single instance
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+Benefits of Singleton Pattern:
+
+Global Access: Singleton ensures that there's a single point of access to the instance, making it easy to manage and control.
+Lazy Initialization: The instance is created only when needed, which can save resources.
+Prevents Multiple Instances: It prevents the accidental creation of multiple instances of the class.
+
+Drawbacks of Singleton Pattern:
+
+Global State: Because it provides global access, overuse of the Singleton pattern can lead to global state, which can make debugging and maintenance more complex.
+Testing Challenges: It can be challenging to test classes that depend on singletons since they rely on global instances.
+Concurrency Issues: In a multi-threaded environment, you need to ensure that the Singleton is thread-safe to prevent multiple instances from being created concurrently.
+
+
+27. Why Maven is usefull.
+Answer: We don't need to add additional JAR files.
+Maven does it automatically after we add those dependencies into the POM(Project Object	Model) file.
+It searches the added dependencies in the central database and add it to the program.
