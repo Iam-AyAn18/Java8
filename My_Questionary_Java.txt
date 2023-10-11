@@ -426,3 +426,18 @@ Concurrency Issues: In a multi-threaded environment, you need to ensure that the
 Answer: We don't need to add additional JAR files.
 Maven does it automatically after we add those dependencies into the POM(Project Object	Model) file.
 It searches the added dependencies in the central database and add it to the program.
+
+
+28. JPA vs Hibernate
+Answer: 
+					Java Persistence API																			Hibernate
+- JPA is responsible for managing relational databases in Java applications.			- Hibernate is an ORM tool used for saving the state of the Java object in the database.
+- It is defined under the javax.persistence package.									- It is defined under org.hibernate package.
+- JPA is the Java specification and not the implementation.								- Hibernate is an implementation of JPA and uses common standards of Java Persistence API.
+- It is the standard API that allows developers 										- It is used to map Java data types with database tables and SQL data types.
+to perform database operations smoothly.												
+- It uses the EntityManagerFactory 														- It uses the SessionFactory interface for creating Session instances.
+interface to interact with the entity manager factory for the persistence unit. 		
+- It uses the EntityManager interface to create, read, and delete 						- It uses a Session interface to create, read, and delete operations for instances of mapped entity classes. 
+operations for instances of mapped entity classes. 										It behaves as a runtime interface between a Java application and Hibernates.
+This interface interacts with the persistence context.								
