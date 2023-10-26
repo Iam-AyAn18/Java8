@@ -49,3 +49,12 @@ Here are the commonly used values for the `scope` attribute in Maven:
 
 6. **import:**
    The `import` scope is used only in Maven 2. It's used to include dependencies that are "imported" from another POM file. This scope is not used in Maven 3 and later versions.
+   
+   
+4. Kafka Concepts:
+Answer:
+one to one -> point to point
+one to many -> publisher subscriber
+
+producer and consumer
+topics, kafka cluster
