@@ -67,7 +67,7 @@ Answer:
 
 Contructor -  Abstract Class- supports ** Interface- doesn't have
 Default Method -  Abstract Class- doesn't supports ** Interface- can have default method (method with defination can be used as-is or overiden in implemetation)
-Accessibility - Abstract class - Support all public, private, protected ** Interface doesn't support anything other than pulic
+Accessibility - Abstract class - Support all public, private, protected ** Interface doesn't support anything other than public
 Multiple Inheritance - Abstract class - doesn't support ** Interface - Supports
 Methods - Inheritance supports static methods as well as fields with abstract method but doesn't support final methods (support non final method) but it only supports final fields 
 ** Abstract class - supports final, non final methods, and final non-final fields.
@@ -79,7 +79,7 @@ Static methods belong to the class itself, not to any specific instance of the c
 They can be called directly on the class without creating an object of the class.
 Static methods can access only static variables and other static methods of the class.
 They cannot access non-static (instance) variables or methods directly.
-Static methods can be overridden in subclasses, but the subclass method will hide the superclass method, not override it.
+Static methods cannot be overridden in subclasses, the subclass method will hide the superclass method, not override it.
 
 Final Methods:
 Final methods cannot be overridden by subclasses. Once a method is declared as final in a class, it cannot be overridden in any subclass.
@@ -441,3 +441,24 @@ interface to interact with the entity manager factory for the persistence unit.
 - It uses the EntityManager interface to create, read, and delete 						- It uses a Session interface to create, read, and delete operations for instances of mapped entity classes. 
 operations for instances of mapped entity classes. 										It behaves as a runtime interface between a Java application and Hibernates.
 This interface interacts with the persistence context.								
+
+
+29. Static Block, method, variable.
+
+Answer: These are associated with class rather than the object of the class.
+So, we can access them with class name followed by the variable name or method name.
+
+Static methods can only access static variables or static method.
+
+Static variables are initialized with 0
+Since static variables are associated with the class, they are shared among all instances (objects) of that class. 
+Any change made to a static variable is reflected in all instances of the class.
+
+Static block gets executed before main() only once when the class is loaded.
+
+30. Non Static block, method, variables.
+Answer: 
+
+Non Static methods can access static as well as non static variables and methods.
+
+non static block gets executed before constructor is created everytime when a new oject is created.
