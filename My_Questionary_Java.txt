@@ -456,9 +456,45 @@ Any change made to a static variable is reflected in all instances of the class.
 
 Static block gets executed before main() only once when the class is loaded.
 
+Static variables -> Static blocks -> main method
+
 30. Non Static block, method, variables.
 Answer: 
 
 Non Static methods can access static as well as non static variables and methods.
 
 non static block gets executed before constructor is created everytime when a new oject is created.
+
+
+31. Constructor vs Method :
+Answer :
+Constructor:
+1. No Return Type
+2. Class Name
+3. this keyword also points to another constructor of same class, also it represents instance of a class.
+4. it cannot have static, final, abstact type
+5. cannot be inherited
+6. will generate a default constructor if there is no contructor defined in the class.
+
+Method:
+1. it have a return type
+2. Can be any valid identifier
+3. this keyword represents instance of the class
+4. it can have static, final, abstract type
+5. can be inherited
+6. doesn’t generate any default methods
+
+
+32. Static vs non Static members
+Answer:
+Static:
+1. Belongs to the class
+2. can be accessed using the class name itself
+3. static block is executed at the time of class loading
+4. memory is allocated and variables are initialized during class loading
+
+Non Static:
+1. Belongs to objects of the class
+2. can be only accessed through instances of the class that is class objects
+3. non static blocks are executed at the time of object creation
+4. memory is allocated and variables are initialized during object creation

@@ -15,14 +15,16 @@ public class StaticMethod {
 
 	void nonStaticMethod() {
 		num2++;
-		StaticMethod.method();
+		System.out.println("inside non static method"+num2);
 	}
 
 	public static void main(String args[]) {
 		System.out.println("Inside main method");
 		StaticMethod.method();
-		new StaticMethod();
+		StaticMethod sm =new StaticMethod();
 		System.out.println(num);
+		sm.nonStaticMethod();
+		
 	}
 
 	static void method() {
