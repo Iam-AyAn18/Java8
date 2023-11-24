@@ -5,11 +5,11 @@ public class StaticMethod {
 	static int num;
 	int num2;
 
-	StaticMethod() {
+	StaticMethod() {//while object creation
 		System.out.println("Inside the constructor");
 	}
 
-	{
+	{//before constructor
 		System.out.println("Inside the non static block");
 	}
 
@@ -18,12 +18,12 @@ public class StaticMethod {
 		System.out.println("inside non static method"+num2);
 	}
 
-	public static void main(String args[]) {
+	public static void main(String args[]) {//second
 		System.out.println("Inside main method");
-		StaticMethod.method();
+		StaticMethod.method();//call for static method
 		StaticMethod sm =new StaticMethod();
 		System.out.println(num);
-		sm.nonStaticMethod();
+		sm.nonStaticMethod();//call for non static method
 		
 	}
 
@@ -32,7 +32,7 @@ public class StaticMethod {
 		num++;
 	}
 
-	static {
+	static {//first
 		num++;
 		System.out.println(StaticMethod.num);
 		System.out.println("Inside the static block");

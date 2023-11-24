@@ -15,7 +15,7 @@ class Child2 extends Parent2 {
 public class InheritanceNonStaticMethod {
     public static void main(String[] args) {
         Parent2 p = new Child2();
-        p.staticMethod(); // Calls the static method in Parent
+        p.staticMethod(); // Calls the static method in child
         
         //Child2.staticMethod();
         //Parent2.staticMethod();

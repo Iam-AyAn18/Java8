@@ -450,6 +450,8 @@ So, we can access them with class name followed by the variable name or method n
 
 Static methods can only access static variables or static method.
 
+Static blocks cannot be overriden.
+
 Static variables are initialized with 0
 Since static variables are associated with the class, they are shared among all instances (objects) of that class. 
 Any change made to a static variable is reflected in all instances of the class.
@@ -498,3 +500,25 @@ Non Static:
 2. can be only accessed through instances of the class that is class objects
 3. non static blocks are executed at the time of object creation
 4. memory is allocated and variables are initialized during object creation
+
+33. Final Keyword in Java
+Answer:
+Variable -> to create a constant variable or prevents value change of a variable
+Method -> prevents method overiding, A constructor cannot be marked as final because whenever a class is inherited, the constructors are not inherited.
+Class -> prevents inheritance
+
+
+34. String and String Buffer.
+Asnwer:
+java.lang.String objects are immutable in java. That is, once you create String objects, you can’t modify them. Whenever you try to modify the existing String object, a new String object is created with modifications. 
+Existing object is not at all altered. 
+Where as java.lang.StringBuffer and java.lang.StringBuilder objects are mutable. That means, you can perform modifications to existing objects.
+
+
+Whenever you create a string object using string literal (String str = "abc";), that object is stored in the string constant pool and 
+whenever you create a string object using new keyword (String str = new String("abc");), such object is stored in the heap memory.
+
+When you create a string object using string literal, JVM first checks the content of to be created object. 
+If there exist an object in the pool with the same content, then it returns the reference of that object. It doesn’t create new object. 
+If the content is different from the existing objects then only it creates new object within the string constant pool.
+Example : if str1 = str2 = "abc" then in string constant pool address of s1 == address of s2.
