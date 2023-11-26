@@ -522,3 +522,10 @@ When you create a string object using string literal, JVM first checks the conte
 If there exist an object in the pool with the same content, then it returns the reference of that object. It doesn’t create new object. 
 If the content is different from the existing objects then only it creates new object within the string constant pool.
 Example : if str1 = str2 = "abc" then in string constant pool address of s1 == address of s2.
+
+35. How does an exception propagate in the code?
+Asnwer:
+When an exception occurs, first it searches to locate the matching catch block. In case, the matching catch block is located, then that block would be executed. 
+Else, the exception propagates through the method call stack and goes into the caller method where the process of matching the catch block is performed. 
+This propagation happens until the matching catch block is found. 
+If the match is not found, then the program gets terminated in the main method.
