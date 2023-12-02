@@ -58,3 +58,17 @@ one to many -> publisher subscriber
 
 producer and consumer
 topics, kafka cluster
+
+
+4. Cascading in hibernate
+Answer : 
+
+Hibernate provides several types of cascade options that can be used to manage the relationships between entities.
+CascadeType.ALL
+CascadeType.PERSIST
+CascadeType.MERGE
+CascadeType.REMOVE
+CascadeType.REFRESH
+CascadeType.DETACH
+CascadeType.REPLICATE
+CascadeType.SAVE_UPDATE

@@ -503,7 +503,7 @@ Non Static:
 
 33. Final Keyword in Java
 Answer:
-Variable -> to create a constant variable or prevents value change of a variable
+Variable -> to create a constant variable or prevents value change of a variable. If any value has not been assigned to that variable, then it can be assigned only by the constructor of the class.
 Method -> prevents method overiding, A constructor cannot be marked as final because whenever a class is inherited, the constructors are not inherited.
 Class -> prevents inheritance
 
@@ -515,7 +515,7 @@ Existing object is not at all altered.
 Where as java.lang.StringBuffer and java.lang.StringBuilder objects are mutable. That means, you can perform modifications to existing objects.
 
 
-Whenever you create a string object using string literal (String str = "abc";), that object is stored in the string constant pool and 
+Whenever you create a string object using string literal (String str = "abc";), that object is stored in the string constant pool which is inside a heap meamory and 
 whenever you create a string object using new keyword (String str = new String("abc");), such object is stored in the heap memory.
 
 When you create a string object using string literal, JVM first checks the content of to be created object. 
@@ -523,9 +523,63 @@ If there exist an object in the pool with the same content, then it returns the 
 If the content is different from the existing objects then only it creates new object within the string constant pool.
 Example : if str1 = str2 = "abc" then in string constant pool address of s1 == address of s2.
 
+
+String abc = new String("ABC");
+This stores data in separate heap memory. But when we do abc.concat("DEF") then the value of abc doesn't change as 
+String is immutable but a new string heap memory is created with "ABCDEF" that isn't assigned to any variable.
+
 35. How does an exception propagate in the code?
 Asnwer:
 When an exception occurs, first it searches to locate the matching catch block. In case, the matching catch block is located, then that block would be executed. 
 Else, the exception propagates through the method call stack and goes into the caller method where the process of matching the catch block is performed. 
 This propagation happens until the matching catch block is found. 
 If the match is not found, then the program gets terminated in the main method.
+
+36. String Intern()
+Answer:
+intern() method of java.lang.String class is used to perform interning i.e creating an exact copy of heap string object in string constant pool. 
+When you call this method on a string object, first it checks whether there exist an object with the same content in the String Constant Pool. 
+If object does not exist in the pool, it will create an object with the same content in the string constant pool and returns the reference of that object. 
+If object exist in the pool than it returns reference of that object without creating a new object.
+
+
+37. Java Generics in class.
+Answer:
+When you pass a type while creating an object to the generic class, that object works only with that type. 
+For example, If you pass String type while creating an object to the above generic class then that object works only with String type. 
+
+38. Java Generics in interface.
+Asnwer:
+interface GenericInterface<T>
+{
+    void setT(T t);
+ 
+    T getT();
+}
+
+39. Java Collections
+Answer: Collection Framework in java is a centralized and unified theme to store and manipulate the group of objects. 
+Java Collection Framework provides some pre-defined classes and interfaces to handle the group of objects. 
+Using collection framework, you can store the objects as a list or as a set or as a queue or as a map and perform operations like adding an object or removing an object or sorting the objects.
+
+40. Why do we need Java Collections
+Answer: To overcome static nature of an array and to implement it with predefined functions that a collection interface already has.
+
+41. Advantages Of Using ArrayList Over Arrays.
+Answer:
+ArrayList as re-sizable array. Size of the ArrayList is not fixed. ArrayList can grow and shrink dynamically.
+Elements can be inserted at or deleted from a particular position.
+If generics are not used, ArrayList can hold any type of objects.
+There will be no significant change in the performance of an application if you use ArrayList instead of arrays.
+You can traverse an ArrayList in both the directions – forward and backward using ListIterator.
+
+
+42. Fail Fast And Fail Safe Iterators In Java
+Answer:
+Iterators in Java give us the facility to traverse over the Collection objects. Iterators returned by the collections are either fail-fast or fail-safe in nature. 
+Fail-Fast iterators immediately throw ConcurrentModificationException if a collection is modified while iterating over it. 
+Where as Fail-Safe iterators don’t throw any exceptions if a collection is modified while iterating over it. 
+Because, they operate on the clone of the collection, not on the actual collection.
+
+
+why do we need default methods
