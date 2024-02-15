@@ -17,6 +17,9 @@ public class InheritanceNonStaticMethod {
         Parent2 p = new Child2();
         p.staticMethod(); // Calls the static method in child
         
+        Parent2 p1 = new Parent2();
+        p1.staticMethod(); // Calls the static method in parent
+        
         //Child2.staticMethod();
         //Parent2.staticMethod();
     }

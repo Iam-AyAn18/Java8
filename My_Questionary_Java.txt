@@ -504,8 +504,8 @@ Non Static:
 33. Final Keyword in Java
 Answer:
 Variable -> to create a constant variable or prevents value change of a variable. If any value has not been assigned to that variable, then it can be assigned only by the constructor of the class.
-Method -> prevents method overiding, A constructor cannot be marked as final because whenever a class is inherited, the constructors are not inherited.
-Class -> prevents inheritance
+Method -> prevents method overiding,.
+Class -> prevents inheritance,  A constructor cannot be marked as final because whenever a class is inherited, the constructors are not inherited.
 
 
 34. String and String Buffer.
@@ -557,6 +557,8 @@ interface GenericInterface<T>
     T getT();
 }
 
+If you use generics, you need not to perform the type casting explicitly. Java compiler applies strong type checking if you use generics in your code and shows errors if the code violates the type safety. 
+
 39. Java Collections
 Answer: Collection Framework in java is a centralized and unified theme to store and manipulate the group of objects. 
 Java Collection Framework provides some pre-defined classes and interfaces to handle the group of objects. 
@@ -569,7 +571,7 @@ Answer: To overcome static nature of an array and to implement it with predefine
 Answer:
 ArrayList as re-sizable array. Size of the ArrayList is not fixed. ArrayList can grow and shrink dynamically.
 Elements can be inserted at or deleted from a particular position.
-If generics are not used, ArrayList can hold any type of objects.
+If generics are used, ArrayList can hold any type of objects.
 There will be no significant change in the performance of an application if you use ArrayList instead of arrays.
 You can traverse an ArrayList in both the directions – forward and backward using ListIterator.
 
@@ -581,5 +583,21 @@ Fail-Fast iterators immediately throw ConcurrentModificationException if a colle
 Where as Fail-Safe iterators don’t throw any exceptions if a collection is modified while iterating over it. 
 Because, they operate on the clone of the collection, not on the actual collection.
 
+43. Why do we need default methods
+Answer : 
+Default methods in Java interfaces were introduced in Java 8 to provide a way to add new methods to interfaces without breaking the classes that already implement those interfaces. Here are some reasons why default methods are useful:
 
-why do we need default methods
+1. *Backward Compatibility:*
+   - Existing interfaces can be extended with new methods without affecting the classes that already use those interfaces. This is important for maintaining backward compatibility.
+
+2. *Interface Evolution:*
+   - Interfaces can now evolve over time, and new methods can be added to them without requiring modifications to the existing implementing classes.
+
+3. *Library Support:*
+   - Default methods allow library designers to add new methods to interfaces and provide default implementations without causing issues for the existing users of those interfaces.
+
+4. *Gradual Adoption:*
+   - Default methods allow for the gradual adoption of new methods. Existing classes can still choose to override the default methods if they want to provide their own implementation.
+
+5. *Code Reusability:*
+   - Default methods can include shared utility methods or helper methods that are applicable to a wide range of implementing classes. This promotes code reusability.
