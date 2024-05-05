@@ -616,3 +616,5 @@ It is the implementation of JVM. It physically exists. It contains a set of libr
 
 JDK is an acronym for Java Development Kit. The Java Development Kit (JDK) is a software development environment which is used to develop Java applications and applets. 
 It physically exists. It contains JRE + development tools.
+
+45.
