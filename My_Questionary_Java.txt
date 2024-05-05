@@ -601,3 +601,18 @@ Default methods in Java interfaces were introduced in Java 8 to provide a way to
 
 5. *Code Reusability:*
    - Default methods can include shared utility methods or helper methods that are applicable to a wide range of implementing classes. This promotes code reusability.
+
+
+44. JVM vs JRE vs JDK.
+Answer:
+
+JVM (Java Virtual Machine) is an abstract machine. It is called a virtual machine because it doesn't physically exist. 
+It is a specification that provides a runtime environment in which Java bytecode can be executed. 
+It can also run those programs which are written in other languages and compiled to Java bytecode.
+
+JRE is an acronym for Java Runtime Environment. It is also written as Java RTE. 
+The Java Runtime Environment is a set of software tools which are used for developing Java applications. It is used to provide the runtime environment. 
+It is the implementation of JVM. It physically exists. It contains a set of libraries + other files that JVM uses at runtime.
+
+JDK is an acronym for Java Development Kit. The Java Development Kit (JDK) is a software development environment which is used to develop Java applications and applets. 
+It physically exists. It contains JRE + development tools.

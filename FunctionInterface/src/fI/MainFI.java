@@ -11,6 +11,10 @@ public class MainFI {
 		LambdaInt<Integer> li = (a, b) -> a+b;
 		
 		System.out.println(li.operation(4, 6));
+		
+		LambdaInt<String> liStr = (a, b) -> a+b;
+		
+		System.out.println(liStr.operation("a", "bb"));
 	}
 
 }
