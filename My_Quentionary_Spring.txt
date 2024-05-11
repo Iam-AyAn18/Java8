@@ -72,3 +72,91 @@ CascadeType.REFRESH
 CascadeType.DETACH
 CascadeType.REPLICATE
 CascadeType.SAVE_UPDATE
+
+5. @service and @component
+Answer:
+Both annotations allow Spring to automatically detect and register the annotated class as a Spring-managed component during component scanning.
+Spring will create an instance of the annotated class and manage its lifecycle as a bean within the application context.
+
+@Service is intended to annotate classes that represent business services or service layer components in a Spring application.
+@Component is a more generic stereotype annotation that can be used to annotate any Spring-managed bean, regardless of its specific role or purpose.
+
+6. @bean annotation in spring boot
+Answer:
+1. Declaring Beans:You can annotate methods with @Bean in a Spring configuration class to declare beans. These methods are responsible for creating and configuring instances of beans.
+@configuration
+class classname{
+@bean
+public MyBean myBean(){
+return new MyBean();
+}
+}
+
+2. Bean Configuration:You can also use @Bean to configure bean properties, dependencies, and lifecycle callbacks within the method.
+@Bean
+public DataSource dataSource()
+{
+DataSource dataSource = new DataSource();
+dataSource.url("/xyz");
+dataSource.password("asdf");
+return dataSource;
+}
+
+3. Injection of Beans:Beans declared with @Bean can be injected into other beans or components using constructor injection, setter injection, or @Autowired.
+@Autowired
+private MyBean myBean;
+
+7. Scope of @Bean in spring boot
+Answer:
+The scope of a bean determines the lifecycle and visibility of instances managed by the Spring IoC (Inversion of Control) container.
+A. Singleton:
+The singleton scope is the default scope in Spring Boot.
+In this scope, the Spring IoC container creates and manages a single instance of the bean per container.
+
+@Bean
+@Scope("singleton")
+public MyBean myBean() {
+    return new MyBean();
+}
+
+B. Prototype:
+In the prototype scope, the Spring IoC container creates a new instance of the bean every time it is requested.
+Each request for the bean results in a new independent instance being returned.
+
+@Bean
+@Scope("prototype")
+public MyBean myBean() {
+    return new MyBean();
+}
+
+C. Request:
+A new instance of the bean is created for each HTTP request, and it is destroyed once the request is completed.
+
+D. Session:
+A single instance of the bean is created per HTTP session, and it is destroyed when the session expires or is invalidated.
+
+E. Application:
+The application scope is specific to the Servlet Context in a web application.
+A single instance of the bean is created per Servlet Context, and it is destroyed when the Servlet Context is destroyed.
+
+
+8. @bean vs @component
+Answer:
+@Bean
+It is used to explicitly declare a single bean, rather than letting Spring do it automatically. 
+We should use @bean, if you want specific implementation based on dynamic condition.
+
+@Component
+If any class is annotated with @Component it will be automatically detect by using classpath scan.
+We can’t write specific implementation based on dynamic condition
+
+9. @PostContrust @PreDestory annotations
+Answer:
+@PostConstruct and @PreDestroy annotations also do the same work as initMethod and destroyMethod do. 
+The main difference is that initMethod and destroyMethod are passed as parameters to @Bean annotation, 
+where as @PostConstruct and @PreDestroy are annotations applied to methods of the bean class itself.
+
+10. Why @Transient annontation is used in spring boot.
+Answer:
+When you mark a field with @Transient, it instructs the JPA provider (e.g., Hibernate) to exclude that field from being persisted to the database. 
+This means that the field will not be mapped to any database column and will not be stored when an entity object is saved to the database.

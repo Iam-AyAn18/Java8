@@ -2,6 +2,8 @@ package streamHashMap;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 public class StreamRunner {
 
@@ -17,6 +19,9 @@ public class StreamRunner {
 		hmap.put(6, "SK");
 		
 		System.out.println(hmap);
+		
+		Set<Entry<Integer, String>> set = hmap.entrySet();
+		System.out.println("123 "+set);
 		
 		hmap.entrySet().stream().filter(s->s.getKey()==1 && s.getValue()=="Ayan").forEach(System.out::println);
 	}

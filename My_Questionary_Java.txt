@@ -114,10 +114,21 @@ You can treat it as as an added advantage over the other languages which are eit
 From Java 8, you can use Java either in an object-oriented programming paradigm or in a functional programming paradigm. 
 It supports both.
 
+Some feature introduced in java 8:
+A. Lambda Expressions for functional programming.
+B. Streams API for processing collections declaratively.
+C. Functional Interfaces for lambda compatibility.
+D. Default and Static Methods in Interfaces for backward compatibility.
+E. Optional Class for better handling of nullable values.
+F. Method References for shorthand syntax.
+G. Date and Time API (java.time) for improved date and time handling.
+I. Parallel Array Sorting for improved sorting performance.
+
+
 10. Which type of resource loading do Java 8 streams support? Lazy Loading OR Eager Loading?
 Answer:
-Lazy Loading.
 
+Lazy Loading:
 Lazy Loading is a technique where the data is loaded on-demand or when it is actually needed.
 Eager Loading is the opposite of lazy loading, where the data is loaded upfront or eagerly.
 With eager loading, all related data or objects are loaded immediately, even if they might not be accessed or used immediately.
@@ -510,7 +521,8 @@ Class -> prevents inheritance,  A constructor cannot be marked as final because 
 
 34. String and String Buffer.
 Asnwer:
-java.lang.String objects are immutable in java. That is, once you create String objects, you can’t modify them. Whenever you try to modify the existing String object, a new String object is created with modifications. 
+java.lang.String objects are immutable in java. That is, once you create String objects, you can’t modify them. Whenever you try to modify the existing String object, 
+a new String object is created with modifications. 
 Existing object is not at all altered. 
 Where as java.lang.StringBuffer and java.lang.StringBuilder objects are mutable. That means, you can perform modifications to existing objects.
 
@@ -526,7 +538,7 @@ Example : if str1 = str2 = "abc" then in string constant pool address of s1 == a
 
 String abc = new String("ABC");
 This stores data in separate heap memory. But when we do abc.concat("DEF") then the value of abc doesn't change as 
-String is immutable but a new string heap memory is created with "ABCDEF" that isn't assigned to any variable.
+String is immutable but a new string heap memory is created with "ABCDEF" and the address of this string is assigned to the variable abc.
 
 35. How does an exception propagate in the code?
 Asnwer:
@@ -585,7 +597,8 @@ Because, they operate on the clone of the collection, not on the actual collecti
 
 43. Why do we need default methods
 Answer : 
-Default methods in Java interfaces were introduced in Java 8 to provide a way to add new methods to interfaces without breaking the classes that already implement those interfaces. Here are some reasons why default methods are useful:
+Default methods in Java interfaces were introduced in Java 8 to provide a way to add new methods to interfaces without breaking the classes that already implement those interfaces. 
+Here are some reasons why default methods are useful:
 
 1. *Backward Compatibility:*
    - Existing interfaces can be extended with new methods without affecting the classes that already use those interfaces. This is important for maintaining backward compatibility.
@@ -617,4 +630,32 @@ It is the implementation of JVM. It physically exists. It contains a set of libr
 JDK is an acronym for Java Development Kit. The Java Development Kit (JDK) is a software development environment which is used to develop Java applications and applets. 
 It physically exists. It contains JRE + development tools.
 
-45.
+45. Difference between git pull and git fetch.
+Answer:
+git pull = git fetch + git merge
+git fetch = Used to fetch all changes from the remote repository to the local repository without merging into the current working directory
+working directory = local branch of the remote branch
+local repo = remote/origin/main
+
+
+
+50.  In java instance variables (fields) are not overridden in the same way that methods are overridden in inheritance.
+Answer:
+
+Methods:
+Inheritance allows a subclass to provide a specific implementation of a method that is already defined in its superclass.
+When a subclass overrides a method from its superclass, the subclass version of the method is invoked at runtime if the object is of the subclass type, 
+even if it is referred to by a reference of the superclass type.
+
+Instance Variables:
+Instance variables in a superclass are not overridden by subclasses. Instead, they are hidden or shadowed by instance variables with the same name in the subclass.
+If a subclass declares an instance variable with the same name as an instance variable in its superclass, the subclass instance variable hides the superclass 
+instance variable within the scope of the subclass.
+Access to instance variables is determined at compile time based on the type of reference, not at runtime based on the type of object. 
+So, the instance variable accessed depends on the reference type rather than the actual object type.
+
+51. Dynamic method dispatch
+Asnwer:
+Dynamic method dispatch is a feature in object-oriented programming languages, such as Java, 
+that enables the selection of a method implementation to be determined at runtime rather than compile time. 
+It allows a subclass to provide a specific implementation of a method that is already defined in its superclass and is a key aspect of polymorphism.
