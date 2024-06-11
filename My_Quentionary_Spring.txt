@@ -160,3 +160,10 @@ where as @PostConstruct and @PreDestroy are annotations applied to methods of th
 Answer:
 When you mark a field with @Transient, it instructs the JPA provider (e.g., Hibernate) to exclude that field from being persisted to the database. 
 This means that the field will not be mapped to any database column and will not be stored when an entity object is saved to the database.
+
+11. Why @transactional annotation is used in spring boot.
+Answer:
+@Transactional at the interface level specifies that all methods of this repository interface should be executed within a transactional context.
+With this setup, any method call on UserRepository, such as save(), delete(), or custom query methods, will automatically be wrapped in a transaction managed by the Spring framework. 
+If an exception occurs during the execution of any method, the transaction will be rolled back, ensuring data consistency.
+

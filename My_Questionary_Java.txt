@@ -639,7 +639,7 @@ local repo = remote/origin/main
 
 
 
-50.  In java instance variables (fields) are not overridden in the same way that methods are overridden in inheritance.
+50. In java instance variables (fields) are not overridden in the same way that methods are overridden in inheritance.
 Answer:
 
 Methods:
@@ -659,3 +659,18 @@ Asnwer:
 Dynamic method dispatch is a feature in object-oriented programming languages, such as Java, 
 that enables the selection of a method implementation to be determined at runtime rather than compile time. 
 It allows a subclass to provide a specific implementation of a method that is already defined in its superclass and is a key aspect of polymorphism.
+
+52. given a string of cities find the number of distinct cities using stream.
+Answer:
+
+        String str = "kolkata, lucknow, kolkata, delhi, kolkata, mumbai";
+        
+        // Split the string by comma and trim each city
+        List<String> cities = Arrays.asList(str.split(", "));
+        
+        // Use streams to find distinct cities
+        long distinctCount = cities.stream()
+                                  .distinct()
+                                  .count();
+        
+        System.out.println("Number of distinct cities: " + distinctCount);
